@@ -1,0 +1,11 @@
+SELECT imie, nazwisko FROM kurierzy INNER JOIN paczki ON kurierzy.id_kuriera = paczki.id_kuriera WHERE wielkosc='C' ORDER BY imie ASC;
+SELECT imie, nazwisko FROM kurierzy INNER JOIN pojazdy ON kurierzy.id_pojazdu = pojazdy.id_pojazdu WHERE rejestracja='L-422Q';
+SELECT odbiorcy.imie, odbiorcy.nazwisko FROM odbiorcy INNER JOIN paczki ON paczki.id_odbiorcy = odbiorcy.id_odbiorcy INNER JOIN nadawcy ON nadawcy.id_nadawcy = paczki.id_nadawcy WHERE nadawcy.imie = 'Tatiana';
+SELECT MAX(staz_pracy) AS 'Najwieksz Staz' FROM kurierzy;
+SELECT AVG(staz_pracy) AS 'Sredni Staz' FROM kurierzy;
+SELECT COUNT(*) AS 'Liczba Paczek' FROM paczki;
+SELECT COUNT(*) AS 'Imie na litere R' FROM kurierzy WHERE imie LIKE 'R%';
+SELECT model FROM pojazdy INNER JOIN kurierzy ON pojazdy.id_pojazdu = kurierzy.id_pojazdu WHERE staz_pracy>5 ORDER BY model ASC;
+SELECT COUNT(rodzaj_pracownika) AS 'Rodzaj Pracownika' FROM kadra WHERE rodzaj_pracownika='Młody Pracownik';
+SELECT COUNT(rodzaj_pracownika) FROM kadra GROUP BY rodzaj_pracownika ORDER BY rodzaj_pracownika;
+SELECT imie, nazwisko, nr_telefonu, adres FROM odbiorcy WHERE adres LIKE '%Siedlce';
